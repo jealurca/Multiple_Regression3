@@ -138,6 +138,9 @@ output:
 
 A. Indique qué variables son estadísticamente significativas a nivel individual, usando como nivel de significancia el 5%. ¿Y si usamos el nivel de significancia del 10%?
 
+Es posible construir ods 
+
+
 B. Construya un intervalo del 95% de confianza para $\beta_{2}$ (ZC) y otro para $\beta_{3}$(ZA).
 
 
