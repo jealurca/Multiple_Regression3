@@ -174,10 +174,10 @@ betas <- c(-0.24, 0.24, 0.6, 1.6)
 tfinal <- betas/cociente
 tfinal
 ```
-Cabe destacar que el anterior resultado se compara con un t teórica.  Dado que el cuantil que se busca es $t_{\alpha/2 , n-p-1 } = t_{0.025, 51 - 4 - 1}$
+Cabe destacar que el anterior resultado se compara con un t teórica.  Dado que el cuantil que se busca es $t_{\alpha/2 , n-p-1 } = t_{0.025, 51 - 3 - 1}$
 
 ```{r}
-t95 <- qt(0.975, 46)
+t95 <- qt(0.975, 47)
 t95
 ```
 Ahora, se contrastan la hipótesis nula con la siguiente expresión: $\mid {t_{o}} \mid > t_{\alpha/2, n-p-1}$. 
@@ -188,12 +188,31 @@ Dado lo anterior, es posible rechazar la hipótesis nula para $\beta_{ZC_{i}}$ y
 
 Finalmente, si se realiza la pregunta "¿Y si se usa el nivel de significancia del 10%?". 
 ```{r}
-t90 <- qt(0.95, 46)
+t90 <- qt(0.95, 47)
 tfinal > t90
 ```
 Luego de realizar el cálculo, es posible sostener que las mismas variables que son significativas ,continúan siendolo al 90% de confianza. 
 
+
 B. Construya un intervalo del 95% de confianza para $\beta_{2}$ (ZC) y otro para $\beta_{3}$(ZA).
+
+Tal como afirma Juarez (2021), "al buscar acotar a alguno de los coeficientes de la regresión en particular, se hablará de intervalor de confianza, sin embargo, al buscar acotar al vector de parámetros $\beta$ se hablará de regresiones de confianza". Por tal razón, se procede a contruir Intervalos para $\beta_{2}$ (ZC) y otro para $\beta_{3}$(ZA) de forma individual. 
+
+Un intervalo de $(1 - \alpha)100%$ de confianza para $\beta_{j}$ tiene la forma de $$ \hat\beta_{j} \pm  t_{a/2, n-p-1} \sqrt{\hat\sigma^2 A_{j}}  $$.
+
+Entonces, 
+
+```{r}
+ZC <- betas[3]
+ZA <- betas[4]
+ZC * c(1, -1) * t95 * cociente[4]
+0.14^2
+```
+<!-- Verificar el valor de P para el estadístico T_{n - p -1}? -->
+Con $p^´ = p + 1$. Donde $p$ es igual al número de variables independientes. 
+
+<!-- VERIFICAR el órden de los coeficiente de regresión en la matriz de diseño. ¿Realmente la primer columna es para beta0, y la segunda col para beta1? -->
+
 
 
 # Para un conjunto de empresas pertenecientes a cierto sector económico se ha ajustado la siguiente función de producción:
