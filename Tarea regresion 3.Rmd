@@ -138,8 +138,60 @@ output:
 
 A. Indique qué variables son estadísticamente significativas a nivel individual, usando como nivel de significancia el 5%. ¿Y si usamos el nivel de significancia del 10%?
 
-Es posible construir ods 
 
+Saber si una variable es estadísticamente significativa implica realizar pruebas de hipótesis. En regresión lineal múltiple es posible hacer dos tipo:
+
+1. Relación lineal entre la Variable de respuesta "Y" y _alguna_ de las variables regresoras. 
+
+2. Relación lineal entre las Variable de respuesta "Y" y de forma _individual_ una coeficiente de regresión. 
+
+
+1. La primer prueba se expresa, de la forma: $$H_{o} : \beta_{1} = \beta_{2} = \dots = \beta_{p} = 0    vs  H_{1} : \beta_{j} \neq 0 , p.a. j \in {1, \dots, p}$$. 
+
+2. La segunda prueba se expresa, de la forma: $$H_{o} : \beta_{j}  vs  H_{1} : \beta_{j} \neq 0 $$ . Además, se rechaza la hipótesis nula si $$\mid {t_{o}} \mid > t_{\alpha/2, n-p-1}$$. Cabe rememorar que la hipótesis nula afirma que la variables independinte $X_{j}$ no contribuye a la respuesta "por lo que puede ser eliminada del modelo" (Juarez, 2021).
+
+Ahora, cabe recordar que la estadística de prueba es una t, y esta es su expresión: 
+$$t_{o} = \frac{\hat\beta_{j}}{\sqrt[2]{\hat\sigma^2*A_{j}}}  $$
+El tamaño de muestra es $n = 51$. Donde, $A_{j} = (X^t*X)^{-1}$, la cuál es la matriz de diseño. Esta se computa en R, como se muestra a continuanción, y se extrae la diagonal. 
+También, se computa la varianza estimada.
+
+```{r}
+
+matr1 <- matrix(c(0.884, -0.085, -0.056, -0.001, -0.085, -0.009, 0.002, 0.0001, -0.056, 0.002, 0.086, -0.05, -0.001, 0.0001, -0.05, 0.383), 4, 4)
+Aj <- diag(matr1)
+vari <- 0.58
+
+```
+Posteriormente, se realiza un producto de escalares, entre los elementos de la diagonal de , $A_{j} = (X^tX) ^{-1}$ y $\hat\sigma ^2$. Finalmente, se aplica raiz cuadrada. 
+```{r}
+Asig <- Aj*vari
+cociente <- sqrt(Asig)
+```
+La anterior operación es el cociente del estimador de $\beta_{j}$. Entonces, se procede a calcular una división para los coeficiente de regresión. Para lo cuál se computan los valores de las $\beta_{j}$.
+
+```{r}
+betas <- c(-0.24, 0.24, 0.6, 1.6)
+tfinal <- betas/cociente
+tfinal
+```
+Cabe destacar que el anterior resultado se compara con un t teórica.  Dado que el cuantil que se busca es $t_{\alpha/2 , n-p-1 } = t_{0.025, 51 - 4 - 1}$
+
+```{r}
+t95 <- qt(0.975, 46)
+t95
+```
+Ahora, se contrastan la hipótesis nula con la siguiente expresión: $\mid {t_{o}} \mid > t_{\alpha/2, n-p-1}$. 
+```{r}
+tfinal > t95
+```
+Dado lo anterior, es posible rechazar la hipótesis nula para $\beta_{ZC_{i}}$ y para $\beta_{ZA_{i}}$ al 95% de confianza. Es decir, las variables ZC y ZA sí tienen una relación lineal con la respuesta.
+
+Finalmente, si se realiza la pregunta "¿Y si se usa el nivel de significancia del 10%?". 
+```{r}
+t90 <- qt(0.95, 46)
+tfinal > t90
+```
+Luego de realizar el cálculo, es posible sostener que las mismas variables que son significativas ,continúan siendolo al 90% de confianza. 
 
 B. Construya un intervalo del 95% de confianza para $\beta_{2}$ (ZC) y otro para $\beta_{3}$(ZA).
 
