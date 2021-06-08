@@ -209,7 +209,7 @@ ZC * c(1, -1) * t95 * cociente[4]
 0.14^2
 ```
 <!-- Verificar el valor de P para el estadístico T_{n - p -1}? -->
-Con $p^´ = p + 1$. Donde $p$ es igual al número de variables independientes. 
+Con $p^{´} = p + 1$. Donde $p$ es igual al número de variables independientes. 
 
 <!-- VERIFICAR el órden de los coeficiente de regresión en la matriz de diseño. ¿Realmente la primer columna es para beta0, y la segunda col para beta1? -->
 
@@ -237,12 +237,36 @@ data3 <- data.frame(Variables = c("Horas", "Exámenes de prueba", "PRomedio", "H
 
 # Considere el siguinete modelo:
 
+$$Y_{i} = \beta_{0} + \beta_{1}X_{1i} + \beta_{2}X_{2i} + e_{i}$$
+$Con VAR(e_{i}) = \frac{\sigma^2}{z_{i}}$
+
 A. ¿Qué hipótesis del modelo de regresión lineal múltiple viola este modelo?
+
+Este modelo viola en principio de homocedasticidad, el cuál afirma que los errores tienen varianza constante, en los modelos de regresión. Esta violación se puede deber a que hay problemas de especificación, de muestreo o propios del fenómeno a tratar. 
+Cabe recordar que los coeficientes de regresión continúen siendo insesgados, por el método de mínimos cuadrados ordinarios (OLS, por sus siglas en Inglés). Pero no son los mejores, pues su varianza no es la mínima. 
+
+
 
 B. ¿Qué expresión tendría el modelo ponderado que corrige este modelo?
 
-C. Compruebe que el modelo ponderado del inciso anterior es
-heterocedástico
+Una forma de corregir el anterior problema es al aplicar el método de mínimos cuadrados _generalizados_ (GLS). El cuál aplica una "transformación al modelo original para que se cumpla el supuesto de homocedasticidad y encontrar los mejores estimadores" (Juarez, 2021).
+Entonces, se parte de la ecuación inicial: 
+$$Y_{i} = \beta_{0} + \beta_{1}X_{1i} + \beta_{2}X_{2i} + e_{i}$$
+Dado que se conocen las varianza heterocedástica, la cuál es: 
+$VAR(e_{i}) = \frac{\sigma^2}{z_{i}}$. 
+Es posible, multiplicar el modelo por $\frac{z_{i}}{\sigma^2}$. 
+Lo que generaría la siguinete expresión: 
+$$Y_{i}\frac{z_{i}}{\sigma^2} = \beta_{0}\frac{z_{i}}{\sigma^2} + \beta_{1}X_{1i}\frac{z_{i}}{\sigma^2} + \beta_{2}X_{2i}\frac{z_{i}}{\sigma^2} +  e_{i}\frac{z_{i}}{\sigma^2}$$
+De esta forma, $$VAR(e_{i}) = \frac{\sigma^2}{z_{i}}$$ Y al aplicar la trasnformación:
+$$VAR(e_{i}^{*}) = \frac{\sigma^2}{z_{i}}\frac{z_{i}}{\sigma^2} = 1$$.
+Lo cuál cumple con los supuestos para los mejores estimadores, según el Teorema de Gauss-Markov, pues los errores tendrían varianza constante. 
+
+
+C. Compruebe que el modelo ponderado del inciso anterior es heterocedástico.
+
+Dado que se busca minimizar la función de los errores: 
+
+$$\sum_{i=1}^{n}(\epsilon_{i}^{*})^2 = \sum[Y_{i}\frac{z_{i}}{\sigma^2} - \beta_{0}\frac{z_{i}}{\sigma^2} - \beta_{1}X_{1i}\frac{z_{i}}{\sigma^2} - \beta_{2}X_{2i}\frac{z_{i}}{\sigma^2}]^{2}$$
 
 # Utilizando el conjunto de datos cangas del paquete expsmooth responda: ¿por qué la transformación de Box-Cox no es de verdadera ayuda?
 
