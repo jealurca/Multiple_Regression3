@@ -59,18 +59,18 @@ output:
     highlight: tango
 ---
                 
-<!--           <!-- El siguiente código sirve para poner el logo del encabezado. --> -->
-<!-- \pagestyle{fancy} -->
-<!-- \fancyhf{} -->
+          <!-- El siguiente código sirve para poner el logo del encabezado. -->
+\pagestyle{fancy}
+\fancyhf{}
 
-<!-- \rhead{\begin{picture}(0,0)  -->
-<!-- \put(-40,-20) -->
-<!-- {\includegraphics[width=30mm] -->
-<!-- {images/iimas}}  -->
-<!-- \end{picture}} -->
+\rhead{\begin{picture}(0,0)
+\put(-40,-20)
+{\includegraphics[width=30mm]
+{image/iimas}}
+\end{picture}}
 
-<!-- \renewcommand{\headrulewidth}{0pt} -->
-<!-- \rfoot[\thepage]{\vspace{-0.5cm} \thepage} -->
+\renewcommand{\headrulewidth}{0pt}
+\rfoot[\thepage]{\vspace{-0.5cm} \thepage}
 
         
 ```{r setup, include = FALSE}
@@ -87,7 +87,7 @@ output:
         #install.packages("kableExtra")
         library(kableExtra)
         library(cluster)
-        library(mclust)
+        library(mclust) 
         library(factoextra)
         library(dendextend)
         library(purrr)
@@ -109,30 +109,23 @@ output:
         
         
         
-        
-        <!-- AQUÍ INICIA LA PÁGINA DE TÍTULO
-        Indicaciones:
-                El nombre de los autores aparece al principio, allí puede cambiar su correo
-        SIEMPRE PONER LA FECHA CORRECTA (la de entrega)
-        ESCRIBIR CADA VEZ EL NOMBRE DE LA MATERIA CORRESPONDIENTE
-        -->
 
-<!-- \title{ {\sc Universidad Nacional Autónoma de México}\\ -->
-<!-- \vspace{1cm}{\sc Instituto de Investigaciones en Matemáticas Aplicadas y en Sistemas}\\  -->
-<!--                         \vspace{1cm}{\sc Especialización en Estadística Aplicada} \\ -->
-<!--                         \vspace{1.5cm} {Diseño de Experimentos} \\ -->
-<!--                         \vspace{1.5cm} {Tarea 4} -->
-<!--                 } -->
+\title{ {\sc Universidad Nacional Autónoma de México}\\
+\vspace{1cm}{\sc Instituto de Investigaciones en Matemáticas Aplicadas y en Sistemas}\\
+                        \vspace{1cm}{\sc Especialización en Estadística Aplicada} \\
+                        \vspace{1.5cm} {Diseño de Experimentos} \\
+                        \vspace{1.5cm} {Tarea 4}
+                }
 
-<!-- \date{\vspace{1.5cm}Ciudad de México\\ -->
-<!--         \vspace{1cm} \today } -->
+\date{\vspace{1.5cm}Ciudad de México\\
+        \vspace{1cm} \today }
 
-<!-- \maketitle -->
+\maketitle
 
 
-<!-- \thispagestyle{fancy} -->
-<!-- \newpage -->
-        
+\thispagestyle{fancy}
+\newpage
+
        
 # Se realiza un estudio del el efecto que tiene la renta per capita (R), la zona costera (ZC) o archipiélago (ZA) sobre las estadías hoteleras por habitante en diferentes provincias (P). Y se obtienen los siguientes resultados
 
