@@ -58,6 +58,7 @@ output:
     df_print: kable
     highlight: tango
 ---
+<<<<<<< HEAD
 
           
 \pagestyle{fancy}
@@ -69,6 +70,19 @@ output:
 {image/iimas}}
 \end{picture}}
 
+=======
+                
+          <!-- El siguiente código sirve para poner el logo del encabezado. -->
+\pagestyle{fancy}
+\fancyhf{}
+
+\rhead{\begin{picture}(0,0)
+\put(-40,-20)
+{\includegraphics[width=30mm]
+{image/iimas}}
+\end{picture}}
+
+>>>>>>> local
 \renewcommand{\headrulewidth}{0pt}
 \rfoot[\thepage]{\vspace{-0.5cm} \thepage}
 
@@ -87,7 +101,7 @@ output:
         #install.packages("kableExtra")
         library(kableExtra)
         library(cluster)
-        library(mclust)
+        library(mclust) 
         library(factoextra)
         library(dendextend)
         library(purrr)
@@ -109,6 +123,7 @@ output:
         
         
         
+<<<<<<< HEAD
 \title{ {\sc Universidad Nacional Autónoma de México}\\
 \vspace{1cm}{\sc Instituto de Investigaciones en Matemáticas Aplicadas y en Sistemas}\\
                         \vspace{1cm}{\sc Especialización en Estadística Aplicada} \\
@@ -125,6 +140,25 @@ output:
 \thispagestyle{fancy}
 \newpage
         
+=======
+
+\title{ {\sc Universidad Nacional Autónoma de México}\\
+\vspace{1cm}{\sc Instituto de Investigaciones en Matemáticas Aplicadas y en Sistemas}\\
+                        \vspace{1cm}{\sc Especialización en Estadística Aplicada} \\
+                        \vspace{1.5cm} {Diseño de Experimentos} \\
+                        \vspace{1.5cm} {Tarea 4}
+                }
+
+\date{\vspace{1.5cm}Ciudad de México\\
+        \vspace{1cm} \today }
+
+\maketitle
+
+
+\thispagestyle{fancy}
+\newpage
+
+>>>>>>> local
        
 # Se realiza un estudio del el efecto que tiene la renta per capita (R), la zona costera (ZC) o archipiélago (ZA) sobre las estadías hoteleras por habitante en diferentes provincias (P). Y se obtienen los siguientes resultados
 
