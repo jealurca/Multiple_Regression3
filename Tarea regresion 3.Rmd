@@ -58,8 +58,8 @@ output:
     df_print: kable
     highlight: tango
 ---
-                
-          <!-- El siguiente código sirve para poner el logo del encabezado. -->
+         
+        
 \pagestyle{fancy}
 \fancyhf{}
 
@@ -127,7 +127,7 @@ output:
 \newpage
 
        
-# Se realiza un estudio del el efecto que tiene la renta per capita (R), la zona costera (ZC) o archipiélago (ZA) sobre las estadías hoteleras por habitante en diferentes provincias (P). Y se obtienen los siguientes resultados
+# Se realiza un  estudio del el efecto que tiene la renta per capita (R), la zona costera (ZC) o archipiélago (ZA) sobre las estadías hoteleras por habitante en diferentes provincias (P). Y se obtienen los siguientes resultados
 
 A. Indique qué variables son estadísticamente significativas a nivel individual, usando como nivel de significancia el 5%. ¿Y si usamos el nivel de significancia del 10%?
 
