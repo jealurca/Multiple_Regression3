@@ -76,7 +76,7 @@ output:
 ```{r setup, include = FALSE}
         knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
-        
+         
 ```{r include = FALSE, echo = FALSE}
         ##  LIBRERÍAS
         # Aquí vamos a incluir las librerías que necesitemos
@@ -356,11 +356,14 @@ $$\sum_{i=1}^{n}(\epsilon_{i}^{*})^2 = \sum[Y_{i}\frac{z_{i}}{\sigma^2} - \beta_
 
 ```{r, include=FALSE}
 base5 <- cangas
+View(base5)
 #subset(base5, base5==length(base5))
-anios <- rep(1:45, each=12)
+anios <- rep(1:46, each=12)
+anios <- anios[1:542]
+
 
 length(base5) #542
-length(anios)
+length(anios) == length(base5) #
 46*11 #552
 #hay46 años
 542/45
