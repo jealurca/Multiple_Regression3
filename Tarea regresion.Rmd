@@ -210,13 +210,86 @@ Con $p^{´} = p + 1$. Donde $p$ es igual al número de variables independientes.
 
 # Para un conjunto de empresas pertenecientes a cierto sector económico se ha ajustado la siguiente función de producción:
 
+$$Q_{i} = \beta_{o}L_{i}^{\beta_{i} K_{i}^{\beta_{2}} e^{e_{i}} }$$
+
 Para que el modelo sea lineal, se toma el logaritmo obteniendo el siguiente modelo transformado
+$$ln(Q_{i}) = ln(\beta_{o}) + \beta_{1}ln(L_{i})  + \beta_{2}ln(K_{i}) + e_{i}$$
+Y se obtiene que $\hat\beta_{0} = e^{0.5}$,  $\hat\beta_{1} = 0.76$, $\hat\beta_{2} = 0.19$, $se(\hat\beta_{1}) = 0.71$ , $se(\hat\beta_{2}) = 0.14$ , y $R^2 = 0.969$.
 
 A. Realice las pruebas de hipótesis individuales para determinar la significancia de $\beta_{1}$ y $\beta_{2}$  la prueba de significancia conjunta.
 
-B. La estimación de los modelos de regresión lineal simple de  ln(Q) en función de ln(L) y de ln(Q) en función de ln(K) produjo los siguientes resultados.
+Tal como se afirmó en el primer inciso, las pruebas de hipótesis permiten conocer si una variable es estadísticamente significativa. En regresión lineal múltiple es posible hacer dos tipo:
 
-Realice las pruebas de hipótesis para evaluar la significancia de en cada uno de los modelos. Explique la aparente contradicción entre los resultados obtenidos del inciso A) y con los obtenidos en este inciso.
+1. Relación lineal entre la Variable de respuesta "Y" y _alguna_ de las variables regresoras. También conocida como _conjunta_. Cuya hipótesis es: $H_{o} : \beta_{1} = \beta_{2} = \dots = \beta_{p} = 0    vs  H_{1} : \beta_{j} \neq 0 , p.a. j \in {1, \dots, p}$
+
+2. Relación lineal entre las Variable de respuesta "Y" y de forma _individual_ una coeficiente de regresión. Cuya hipótesis es: $H_{o} : \beta_{j}  vs  H_{1} : \beta_{j} \neq 0 $
+
+<!-- 1. La primer prueba se expresa, de la forma: $$H_{o} : \beta_{1} = \beta_{2} = \dots = \beta_{p} = 0    vs  H_{1} : \beta_{j} \neq 0 , p.a. j \in {1, \dots, p}$$.  -->
+
+<!-- 2. La segunda prueba se expresa, de la forma: $$H_{o} : \beta_{j}  vs  H_{1} : \beta_{j} \neq 0 $$ . Además, se rechaza la hipótesis nula si $$\mid {t_{o}} \mid > t_{\alpha/2, n-p-1}$$. Cabe rememorar que la hipótesis nula afirma que la variables independinte $X_{j}$ no contribuye a la respuesta "por lo que puede ser eliminada del modelo" (Juarez, 2021). -->
+
+
+En esta sección no se cuenta con $(X^{t}X)^{-1}$. Sin embargo, se tiene directamente la expresión del Error estándar (SE),  a fin de calcular las pruebas. A destacar, SE igual al intervalo para conocer el estadístico, por esta razón se puede argüir que $SE(\hat\beta) = \sqrt{\hat\sigma^2A_{i}}$. 
+
+Entonces, el estadístico t tiene la siguiente expresión: 
+
+$$t_{o} = \frac{\hat\beta_{j}}{\sqrt[2]{\hat\sigma^2*A_{j}}}$$
+Y al realizar las operaciones para $\hat\beta_{1}$, 
+\begin{align*}
+t_{o} = \frac{0.76}{0.71} \\
+& t_{o} = 1.070423
+\end{align*}
+
+El anterior valor debe de ser contrastado mediante la siguinete expresión. Donde se rechazaría la hipótesis nula si: 
+
+$$\mid {t_{o}} \mid > t_{\alpha/2, n-p-1}$$
+Para lo cuál se busca el valor de $t_{\alpha/2, n-p-1} = t_{5/2, 23-2-1} = t_{\alpha/2 = 5/2, 20} = 2.0859$ en tablas de valores.
+
+Entonces, es posible negar la siguiente expresión: $1.070423 > 20859$. Por lo que no se rechaza la hipótesis nula de $H_{0} : \beta_{1} = 0$ al 95% de confianza. Lo que implica que $\beta_{1}$ no tiene una relación lineal con la función de producción. 
+
+
+
+En contraste, al realizar el análisis para $\hat\beta_{2}$. Se realizan las siguiente operaciones:
+
+\begin{align*}
+t_{o} = \frac{0.19}{0.14} \\
+& t_{o} = 1.3571
+\end{align*}
+
+El anterior valor debe de ser contrastado mediante la siguinete expresión:
+
+$$\mid {t_{o}} \mid > t_{\alpha/2, n-p-1}$$
+Para lo cuál se buscó el valor de $t_{\alpha/2, n-p-1} = t_{5/2, 23-2-1} =  2.0859$ en tablas de valores. Y es el mismo que el estadístico anterio.
+
+Entonces, dado que $1.3571 < 20856$, no se rechaza la hipótesis nula de $H_{0} : \beta_{2} = 0$ al 95% de confianza. Lo que implica que $\beta_{2}$ no tiene una relación lineal con la función de producción. 
+
+Cabe destacar que $\beta_{j}$ "depende de todas las variables regresoras, no solamente de $x_{j}$, de manera que en realidad esta prueba es para determinar si la contribución de  $x_{j}$ es signifficativa dadas todas las demás variables regresoras". Y se evidenció que de forma individual, ninguna de las dos variables son significativas para el modelo (Juarez, 2021).
+```{r, include=FALSE}
+0.76/0.71
+0.19/0.14
+qt(0.975, 20)
+```
+
+
+A continuación, se realiza la prueba de **significancia conjunta**.  
+
+<!-- Cuya hipótesis es: $H_{o} : \beta_{1} = \beta_{2} = \dots = \beta_{p} = 0    vs  H_{1} : \beta_{j} \neq 0$ , p.a. $j \in {1, \dots, p}$. Rechazar esta hipótesis implica que al menos una variables contribuye al modelo. -->
+
+
+
+
+<!-- Un intervalo de $(1 - \alpha)100%$ de confianza para $\beta_{j}$ de forma indivual tiene la forma de $\hat\beta_{j} \pm  t_{a/2, n-p-1} \sqrt{\hat\sigma^2 A_{j}}$. Que es igual a la siguiente expresión: $$\hat\beta_{j} \pm  t_{a/2, n-p-1} SE(\hat\beta_{j})$$ -->
+
+<!-- Entonces, se calcula el valor del estadístico t en tablas. Se realiza el producto por el Error estándar y se procede a la suma/resta, para conocer el intervalo.  -->
+
+
+
+B. La estimación de los modelos de regresión lineal simple de  ln(Q) en función de ln(L) y de ln(Q) en función de ln(K) produjo los siguientes resultados:
+$ln(Q_{i}) = -5.5 + 1.7ln(L_{i})$, con  $se(\hat\beta_{1}) = 0.09$ y $R^2 = 0.964$
+
+$ln(Q_{i}) = 5.3 + 0.34ln(K_{i})$, con  $se(\hat\beta_{1}) = 0.02$ y $R^2 = 0.966$
+
+C. Realice las pruebas de hipótesis para evaluar la significancia de en cada uno de los modelos. Explique la aparente contradicción entre los resultados obtenidos del inciso A) y con los obtenidos en este inciso.
 
 # Utilizando el estadístico de Mallows como referencia, seleccione que modelo(s) es (son) el (los) mejor para predecir el puntaje de un estudiante en un examen. Suponga que un profesor quisiera utilizar las horas de estudio, exámenes de prueba tomados y el actual promedio como variables para predecir el puntaje que obtendrá un estudiante en un examen. El profesor realiza el ajuste con siete distintos modelos y obtiene el coeficiente de Mallows para cada uno.
 
