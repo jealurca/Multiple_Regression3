@@ -1,7 +1,8 @@
 ---
 # Preámbulo con paquetes y definiciones básicas
 # Se incluyen los comandos mínimos de LaTeX
-title: Tarea Examen Jesús Urrutia
+#title: Examen 3 \\ Jesús Urrutia
+author:
   - Jesus Alberto Urrutia Camacho (urcajeal@gmail.com)
 header-includes:
   - \usepackage{array}
@@ -113,8 +114,8 @@ output:
 \title{ {\sc Universidad Nacional Autónoma de México}\\
 \vspace{1cm}{\sc Instituto de Investigaciones en Matemáticas Aplicadas y en Sistemas}\\
                         \vspace{1cm}{\sc Especialización en Estadística Aplicada} \\
-                        \vspace{1.5cm} {Diseño de Experimentos} \\
-                        \vspace{1.5cm} {Tarea 4}
+                        \vspace{1.5cm} {Análisis de Regresión} \\
+                        \vspace{1.5cm} {Examen 3}
                 }
 
 \date{\vspace{1.5cm}Ciudad de México\\
@@ -145,42 +146,62 @@ Saber si una variable es estadísticamente significativa implica realizar prueba
 
 Ahora, cabe recordar que la estadística de prueba es una t, y esta es su expresión: 
 $$t_{o} = \frac{\hat\beta_{j}}{\sqrt[2]{\hat\sigma^2*A_{j}}}  $$
-El tamaño de muestra es $n = 51$. Donde, $A_{j} = (X^t*X)^{-1}$, la cuál es la matriz de diseño. Esta se computa en R, como se muestra a continuanción, y se extrae la diagonal. 
-También, se computa la varianza estimada.
+El tamaño de muestra es $n = 51$. Donde, $A_{j} = (X^t*X)^{-1}$, la cuál es la matriz de diseño. Esta se calcula, como se muestra a continuanción, y se extrae la diagonal. 
 
-```{r}
+$$\begin{bmatrix}
+0.884 & -0.850 & -0.056 & -0.001\\ 
+-0.850 & 0.009 & 0.002 & 0.0001\\ 
+-0.056 & 0.002 & 0.086 & -0.05\\ 
+-0.001 & 0.001 & -0.05 & 0.3830
+\end{bmatrix}$$
 
-matr1 <- matrix(c(0.884, -0.085, -0.056, -0.001, -0.085, -0.009, 0.002, 0.0001, -0.056, 0.002, 0.086, -0.05, -0.001, 0.0001, -0.05, 0.383), 4, 4)
+De donde la matriz diagonal tiene un valor de:
+$$MI = {0.884, 0.009, 0.086, 0.383}$$
+
+Además, se conoce la varianza estimada: $\sigma^2 = 0.58$
+
+```{r, include=FALSE}
+
+matr1 <- matrix(c(0.884, -0.085, -0.056, -0.001, 
+                  -0.085, 0.009, 0.002, 0.0001, 
+                  -0.056, 0.002, 0.086, -0.05, 
+                  -0.001, 0.0001, -0.05, 0.383), 4, 4)
 Aj <- diag(matr1)
 vari <- 0.58
 
 ```
-Posteriormente, se realiza un producto de escalares, entre los elementos de la diagonal de , $A_{j} = (X^tX) ^{-1}$ y $\hat\sigma ^2$. Finalmente, se aplica raiz cuadrada. 
-```{r}
+Posteriormente, se realiza un producto de escalares, entre los elementos de la diagonal de , $A_{j} = (X^tX) ^{-1}$ y $\hat\sigma ^2$. Este producto tiene por valor: $$A_{j}\sigma^2 = {0.5127, 0.0052,  0.0498, 0.2221}$$
+
+Finalmente, se aplica raiz cuadrada a los elementos. Lo que genera el resultado de:
+
+$$\sqrt{A_{j}\sigma^2} = {0.7160,  0.07224,  0.2233,  0.47131}$$
+```{r, include=FALSE}
 Asig <- Aj*vari
 cociente <- sqrt(Asig)
 ```
-La anterior operación es el cociente del estimador de $\beta_{j}$. Entonces, se procede a calcular una división para los coeficiente de regresión. Para lo cuál se computan los valores de las $\beta_{j}$.
+La anterior operación es el dividendo para calcular el estadístico t. Además, se requiere del estimador de $\beta_{j}$. Entonces, como $\beta_{j}$ son conocidas, se procede a calcular una división para calcuar el estadístico $t_{o}$.
 
-```{r}
+$$t_{0} = \frac{\beta_{j}}{\sqrt{A_{j}\sigma^2}}  = {-0.33517  , 3.3218,  2.6865,  3.3947}$$
+```{r, include=FALSE}
 betas <- c(-0.24, 0.24, 0.6, 1.6)
 tfinal <- betas/cociente
 tfinal
 ```
-Cabe destacar que el anterior resultado se compara con un t teórica.  Dado que el cuantil que se busca es $t_{\alpha/2 , n-p-1 } = t_{0.025, 51 - 3 - 1}$
+Cabe destacar que el anterior resultado se compara con un t teórica.  Dado que el cuantil que se busca es $t_{\alpha/2 , n-p-1 } = t_{0.025, 51 - 3 - 1} = 2.011741$. Esta t se busca en tablas.
 
-```{r}
+```{r, include=FALSE}
 t95 <- qt(0.975, 47)
 t95
 ```
 Ahora, se contrastan la hipótesis nula con la siguiente expresión: $\mid {t_{o}} \mid > t_{\alpha/2, n-p-1}$. 
-```{r}
+```{r, include=FALSE}
 tfinal > t95
 ```
-Dado lo anterior, es posible rechazar la hipótesis nula para $\beta_{ZC_{i}}$ y para $\beta_{ZA_{i}}$ al 95% de confianza. Es decir, las variables ZC y ZA sí tienen una relación lineal con la respuesta.
+Dado lo anterior, es posible rechazar la hipótesis nula para $\beta_{R_{i}}$ , $\beta_{ZC_{i}}$ y para $\beta_{ZA_{i}}$ al 95% de confianza. Es decir, las variables R, ZC y ZA sí tienen una relación lineal con la respuesta. 
 
-Finalmente, si se realiza la pregunta "¿Y si se usa el nivel de significancia del 10%?". 
-```{r}
+Finalmente, si se realiza la pregunta "¿Y si se usa el nivel de significancia del 10%?".  Se contruye la 
+$t_{\alpha/2 , n-p-1 } = t_{0.05, 51 - 3 - 1} = 1.6779$. Esta t se busca en tablas.
+```{r, include=FALSE}
 t90 <- qt(0.95, 47)
 tfinal > t90
 ```
@@ -189,20 +210,37 @@ Luego de realizar el cálculo, es posible sostener que las mismas variables que 
 
 B. Construya un intervalo del 95% de confianza para $\beta_{2}$ (ZC) y otro para $\beta_{3}$(ZA).
 
-Tal como afirma Juarez (2021), "al buscar acotar a alguno de los coeficientes de la regresión en particular, se hablará de intervalor de confianza, sin embargo, al buscar acotar al vector de parámetros $\beta$ se hablará de regresiones de confianza". Por tal razón, se procede a contruir Intervalos para $\beta_{2}$ (ZC) y otro para $\beta_{3}$(ZA) de forma individual. 
+Tal como afirma Juarez (2021), "al buscar acotar a alguno de los coeficientes de la regresión en particular, se hablará de intervalor de confianza, sin embargo, al buscar acotar al vector de parámetros $\beta$ se hablará de regresiones de confianza". Por tal razón, se procede a contruir Intervalos _de confianza_ para $\beta_{2}$ (ZC) y otro para $\beta_{3}$(ZA) de forma individual. 
 
-Un intervalo de $(1 - \alpha)100%$ de confianza para $\beta_{j}$ tiene la forma de $$ \hat\beta_{j} \pm  t_{a/2, n-p-1} \sqrt{\hat\sigma^2 A_{j}}  $$.
+Un intervalo de $(1 - \alpha)100%$ de confianza para $\beta_{j}$ tiene la forma de $$\hat\beta_{j} \pm  t_{a/2,n-p-1} \sqrt{\hat\sigma^2A_{j}}$$.
 
-Entonces, 
+Entonces, como se conocen los valores para las $\hat\beta_{j}$, y también de $t_{a/2, n-p-1}$ y de $\sqrt{\hat\sigma^2 A_{j}}$. Es posible hacer el cálculo para conocer los intervalor para las $\beta$.
 
-```{r}
+\begin{align*}
+\hat\beta_{ZC} \pm \\
+& t_{a/2, n-p-1} \sqrt{\hat\sigma^2 A_{j}}= \\
+& 0.6 \pm 2.011741*0.22333 = ( 0.2695 ,  -0.2695)
+\end{align*}
+
+\begin{align*}
+\hat\beta_{ZA} \pm \\
+& t_{a/2, n-p-1} \sqrt{\hat\sigma^2 A_{j}}= \\
+& 1.6 \pm 2.011741*0.4713 = ( 1.517069 ,   -1.517069)
+\end{align*}
+
+Para concluir, es posible sostener que ambos intervalos de confianza contienen a los parámetros de tanto $\beta_{ZC}$ como $\beta_{ZA}$, con una confianza del 95%.
+
+```{r, include=FALSE}
 ZC <- betas[3]
 ZA <- betas[4]
-ZC * c(1, -1) * t95 * cociente[4]
+ZC * c(1, -1) * t95 * cociente[3]
+ZA * c(1, -1) * t95 * cociente[4]
 0.14^2
 ```
+
 <!-- Verificar el valor de P para el estadístico T_{n - p -1}? -->
-Con $p^{´} = p + 1$. Donde $p$ es igual al número de variables independientes. 
+
+<!-- Con $p^{´} = p + 1$. Donde $p$ es igual al número de variables independientes.  -->
 
 <!-- VERIFICAR el órden de los coeficiente de regresión en la matriz de diseño. ¿Realmente la primer columna es para beta0, y la segunda col para beta1? -->
 
@@ -218,9 +256,9 @@ Y se obtiene que $\hat\beta_{0} = e^{0.5}$,  $\hat\beta_{1} = 0.76$, $\hat\beta_
 
 A. Realice las pruebas de hipótesis individuales para determinar la significancia de $\beta_{1}$ y $\beta_{2}$  la prueba de significancia conjunta.
 
-Tal como se afirmó en el primer inciso, las pruebas de hipótesis permiten conocer si una variable es estadísticamente significativa. En regresión lineal múltiple es posible hacer dos tipo:
+Tal como se afirmó en el primer inciso, las pruebas de hipótesis permiten conocer si una variable tiene dependencia lineal con la repuesta. En regresión lineal múltiple es posible hacer dos tipo:
 
-1. Relación lineal entre la Variable de respuesta "Y" y _alguna_ de las variables regresoras. También conocida como _conjunta_. Cuya hipótesis es: $H_{o} : \beta_{1} = \beta_{2} = \dots = \beta_{p} = 0    vs  H_{1} : \beta_{j} \neq 0 , p.a. j \in {1, \dots, p}$
+1. Relación lineal entre la Variable de respuesta "Y" y las variables regresoras. También conocida como _conjunta_. Cuya hipótesis es: $H_{o} : \beta_{1} = \beta_{2} = \dots = \beta_{p} = 0    vs  H_{1} : \beta_{j} \neq 0 , p.a. j \in {1, \dots, p}$
 
 2. Relación lineal entre las Variable de respuesta "Y" y de forma _individual_ una coeficiente de regresión. Cuya hipótesis es: $H_{o} : \beta_{j}  vs  H_{1} : \beta_{j} \neq 0$
 
@@ -229,7 +267,7 @@ Tal como se afirmó en el primer inciso, las pruebas de hipótesis permiten cono
 <!-- 2. La segunda prueba se expresa, de la forma: $$H_{o} : \beta_{j}  vs  H_{1} : \beta_{j} \neq 0 $$ . Además, se rechaza la hipótesis nula si $$\mid {t_{o}} \mid > t_{\alpha/2, n-p-1}$$. Cabe rememorar que la hipótesis nula afirma que la variables independinte $X_{j}$ no contribuye a la respuesta "por lo que puede ser eliminada del modelo" (Juarez, 2021). -->
 
 
-En esta sección no se cuenta con $(X^{t}X)^{-1}$. Sin embargo, se tiene directamente la expresión del Error estándar (SE),  a fin de calcular las pruebas. A destacar, SE igual al intervalo para conocer el estadístico, por esta razón se puede argüir que $SE(\hat\beta) = \sqrt{\hat\sigma^2A_{i}}$. 
+En esta sección no se cuenta con $(X^{t}X)^{-1}$. Sin embargo, se tiene directamente la expresión del Error estándar (SE), a fin de construir el intervalo y calcular las pruebas, pues $SE(\hat\beta) = \sqrt{\hat\sigma^2A_{i}}$. 
 
 Entonces, el estadístico t tiene la siguiente expresión: 
 
@@ -245,17 +283,20 @@ El anterior valor debe de ser contrastado mediante la siguinete expresión. Dond
 $$\mid {t_{o}} \mid > t_{\alpha/2, n-p-1}$$
 Para lo cuál se busca el valor de $t_{\alpha/2, n-p-1} = t_{5/2, 23-2-1} = t_{\alpha/2 = 5/2, 20} = 2.0859$ en tablas de valores.
 
-Entonces, es posible negar la siguiente expresión: $1.070423 > 20859$. Por lo que no se rechaza la hipótesis nula de $H_{0} : \beta_{1} = 0$ al 95% de confianza. Lo que implica que $\beta_{1}$ no tiene una relación lineal con la función de producción. 
+Entonces, es posible sostenar la siguiente expresión: $1.070423 < 2.0859$. Por lo que no se rechaza la hipótesis nula de $H_{0} : \beta_{1} = 0$ al 95% de confianza. Lo que implica que $\beta_{1}$ no tiene una relación lineal con la función de producción. 
+
+
 
 
 
 En contraste, al realizar el análisis para $\hat\beta_{2}$. Se realizan las siguiente operaciones:
 
 \begin{align*}
-t_{o} = \frac{0.19}{0.14} \\
-& t_{o} = 1.3571
+t_{o} = \frac{0.19}{0.14} = 1.3571
 \end{align*}
-
+```{r, include=FALSE}
+0.19/0.14
+```
 El anterior valor debe de ser contrastado mediante la siguinete expresión:
 
 $$\mid {t_{o}} \mid > t_{\alpha/2, n-p-1}$$
@@ -263,7 +304,8 @@ Para lo cuál se buscó el valor de $t_{\alpha/2, n-p-1} = t_{5/2, 23-2-1} =  2.
 
 Entonces, dado que $1.3571 < 20856$, no se rechaza la hipótesis nula de $H_{0} : \beta_{2} = 0$ al 95% de confianza. Lo que implica que $\beta_{2}$ no tiene una relación lineal con la función de producción. 
 
-Cabe destacar que $\beta_{j}$ "depende de todas las variables regresoras, no solamente de $x_{j}$, de manera que en realidad esta prueba es para determinar si la contribución de  $x_{j}$ es signifficativa dadas todas las demás variables regresoras". Y se evidenció que de forma individual, ninguna de las dos variables son significativas para el modelo (Juarez, 2021).
+
+Cabe destacar que $\beta_{j}$ "depende de todas las variables regresoras, no solamente de $x_{j}$, de manera que en realidad esta prueba es para determinar si la contribución de  $x_{j}$ es significativa dadas todas las demás variables regresoras". Y se evidenció que de forma individual, ninguna de las dos variables son significativas para el modelo (Juarez, 2021).
 ```{r, include=FALSE}
 0.76/0.71
 0.19/0.14
@@ -271,7 +313,9 @@ qt(0.975, 20)
 ```
 
 
-A continuación, se realiza la prueba de **significancia conjunta**. REVISAR LA PP62 notas dek 
+A continuación, se realiza la prueba de **significancia conjunta**. QUÉ ES LO CONJUNTO? . Dado que el estadístico F también se puede escribir de esta forma: $$F = \frac{(TSS - RSS)/(p-1)}{RSS/(n-p)}$$. Y también el coeficiente de determinación puede expresarse como $$R^2 = 1 - \frac{RSS}{TSS} = \frac{T}{}$$
+
+<!-- REVISAR LA PP62 notas dek  -->
 
 <!-- Cuya hipótesis es: $H_{o} : \beta_{1} = \beta_{2} = \dots = \beta_{p} = 0    vs  H_{1} : \beta_{j} \neq 0$ , p.a. $j \in {1, \dots, p}$. Rechazar esta hipótesis implica que al menos una variables contribuye al modelo. -->
 
@@ -288,7 +332,7 @@ $ln(Q_{i}) = -5.5 + 1.7ln(L_{i})$, con  $se(\hat\beta_{1}) = 0.09$ y $R^2 = 0.96
 
 $ln(Q_{i}) = 5.3 + 0.34ln(K_{i})$, con  $se(\hat\beta_{1}) = 0.02$ y $R^2 = 0.966$
 
-C. Realice las pruebas de hipótesis para evaluar la significancia de en cada uno de los modelos. Explique la aparente contradicción entre los resultados obtenidos del inciso A) y con los obtenidos en este inciso.
+Realice las pruebas de hipótesis para evaluar la significancia de en cada uno de los modelos. Explique la aparente contradicción entre los resultados obtenidos del inciso A) y con los obtenidos en este inciso.
 
 # Utilizando el estadístico de Mallows como referencia, seleccione que modelo(s) es (son) el (los) mejor para predecir el puntaje de un estudiante en un examen. Suponga que un profesor quisiera utilizar las horas de estudio, exámenes de prueba tomados y el actual promedio como variables para predecir el puntaje que obtendrá un estudiante en un examen. El profesor realiza el ajuste con siete distintos modelos y obtiene el coeficiente de Mallows para cada uno.
 
@@ -336,21 +380,26 @@ B. ¿Qué expresión tendría el modelo ponderado que corrige este modelo?
 Una forma de corregir el anterior problema es al aplicar el método de mínimos cuadrados _generalizados_ (GLS). El cuál aplica una "transformación al modelo original para que se cumpla el supuesto de homocedasticidad y encontrar los mejores estimadores" (Juarez, 2021).
 Entonces, se parte de la ecuación inicial: 
 $$Y_{i} = \beta_{0} + \beta_{1}X_{1i} + \beta_{2}X_{2i} + e_{i}$$
+
+
+C. Compruebe que el modelo ponderado del inciso anterior es heterocedástico.
+
 Dado que se conocen las varianza heterocedástica, la cuál es: 
 $VAR(e_{i}) = \frac{\sigma^2}{z_{i}}$. 
 Es posible, multiplicar el modelo por $\frac{z_{i}}{\sigma^2}$. 
 Lo que generaría la siguinete expresión: 
-$$Y_{i}\frac{z_{i}}{\sigma^2} = \beta_{0}\frac{z_{i}}{\sigma^2} + \beta_{1}X_{1i}\frac{z_{i}}{\sigma^2} + \beta_{2}X_{2i}\frac{z_{i}}{\sigma^2} +  e_{i}\frac{z_{i}}{\sigma^2}$$
+
+\begin{align*}
+Y_{i}\frac{z_{i}}{\sigma^2} = \\
+& \beta_{0}\frac{z_{i}}{\sigma^2} + \beta_{1}X_{1i}\frac{z_{i}}{\sigma^2} + \beta_{2}X_{2i}\frac{z_{i}}{\sigma^2} +  e_{i}\frac{z_{i}}{\sigma^2}
+\end{align*}
+
+
 De esta forma, $$VAR(e_{i}) = \frac{\sigma^2}{z_{i}}$$ Y al aplicar la trasnformación:
 $$VAR(e_{i}^{*}) = \frac{\sigma^2}{z_{i}}\frac{z_{i}}{\sigma^2} = 1$$.
 Lo cuál cumple con los supuestos para los mejores estimadores, según el Teorema de Gauss-Markov, pues los errores tendrían varianza constante. 
 
 
-C. Compruebe que el modelo ponderado del inciso anterior es heterocedástico.
-
-Dado que se busca minimizar la función de los errores: 
-
-$$\sum_{i=1}^{n}(\epsilon_{i}^{*})^2 = \sum[Y_{i}\frac{z_{i}}{\sigma^2} - \beta_{0}\frac{z_{i}}{\sigma^2} - \beta_{1}X_{1i}\frac{z_{i}}{\sigma^2} - \beta_{2}X_{2i}\frac{z_{i}}{\sigma^2}]^{2}$$
 
 # Utilizando el conjunto de datos cangas del paquete expsmooth responda: ¿por qué la transformación de Box-Cox no es de verdadera ayuda?
 
@@ -447,8 +496,8 @@ Finalmente, es posible sostener que dado que la autocorrelación proviene del he
 A. GRafique los datos
 ```{r, echo=FALSE}
 bd6 <- usdeaths
-length(bd6) #12
-72/12
+# length(bd6) #12
+# 72/12
 anio6 <- rep(1:12, 6)
 
 bd6df <- as.data.frame(cbind(anio6, bd6))
@@ -490,6 +539,8 @@ bc6$x[ which(bc6$y==max(bc6$y)) ] # -0.989899
 mod6new <- lm(((bd6^-0.989899)-1)/-0.989899 ~ anio6)
 
 summary(mod6new)
+```
+```{r, echo=FALSE}
 ggplot(bd6df, aes(x=anio6, y=((bd6^-0.989899)-1)/-0.989899)) +
         geom_point() +
         geom_smooth(method = "lm", se=T, col="orange")
@@ -497,7 +548,7 @@ ggplot(bd6df, aes(x=anio6, y=((bd6^-0.989899)-1)/-0.989899)) +
 ```
 Primero se realiza una transformación box-cox, con $y_{i}^\lambda = y_{i}^{-0.989899}$. Aunque los estimadores continúan siendo significativos al 95% de confianza, con P valores de $0.0000$ y $0.0002$, es evidente que el modelo de mejora su ajuste, pues la $R^2 = 0.17$. Además, se grafica la recta de regresión y es visible la gran distancia entre los datos y la recta. 
 
-```{r}
+```{r, echo=FALSE}
 
 par(mfrow=c(2,2))
 plot(mod6new)
@@ -523,7 +574,7 @@ ggplot(bd6df, aes(x=anio6, y=log(bd6))) +
 ```
 Segundo, se realiza la transformación del logaritmo a la variable respuesta, y el escenario es similar a los anteriores: el $R^2 = 0.15$, pero los estadísticos siguen siendo significativos. También, la gráfica con la recta de regresión parece haber gran distancia entre los datos y la recta. 
 
-```{r}
+```{r, echo=FALSE}
 par(mfrow=c(2,2))
 plot(mod6log)
 
@@ -538,7 +589,7 @@ Finalmente, a pesar  de que el modelo de regresión con los datos originales y e
 
 # Utilice el conjunto de datos seatpos del paquete faraway para encontrar el mejor modelo lineal que describa a la variable hipcenter. Compare este modelo con el modelo que incluye a todas las variables independientes del conjunto.
 
-```{r, echo=FALSE}
+```{r, include=FALSE}
 #?seatpos #Car drivers like to adjust the seat position for their own comfort. Car designers would find it helpful to know where different drivers will position the seat depending on their size and age
 bd7 <- seatpos
 str(bd7)
@@ -570,6 +621,9 @@ cor.mtest <- function(mat, ...) {
 # matrix of the p-value of the correlation
 p.mat <- cor.mtest(cor_base)
 corrplot(cor_base, type = "upper", order = "hclust", tl.col = "black", tl.srt = 45, p.mat = p.mat, sig.level = 0.05)
+```
+
+```{r, include=FALSE}
 ggpairs(bd7)
 
 
@@ -595,7 +649,7 @@ dwtest(complet7)
 ```
 El test con hipótesis nula No correlación no se rechaza, con un P valor de 0.244. La prueba de hipótesis nula de homscedasticidad no se rechaza, pero está en la frontera con un P valor de 0.08. Cabe recordar que este último problema se puede deber a outliers influyentes, errores de especificación, entre otros. 
 
-Entonces, a continuación se procede a encontrar el mejor modelo. Cabe señalar que se debería de modela con respaldo de un experto de área, y este debería ser el principal criterio para crear modelos. Sin embargo, se procede a seleccionar el modelo a través de . . . 
+Entonces, a continuación se procede a encontrar el mejor modelo. Cabe señalar que se debería de modela con respaldo de un experto de área, y este debería ser el principal criterio para crear modelos. Sin embargo, se procede a seleccionar el modelo a través de la Cp de Mallows.
 
 ```{r}
 
@@ -605,15 +659,16 @@ lines(outs$size,outs$size)
 text(outs$size, outs$Cp, labels=row(outs$which), cex=0.9, pos=2)
 ```   
 El análisis con la Cp de Mallows impica que se seleccionará aquel número cuyo valor sea similar a la cantidad de parámetros del modelos, ya que $E(C_{p}) \approx  p$ . En este sentido, y según la gráfica, los modelos 12, 75,79,72,78 son los mejores para este criterio. 
-# ```{r}
-# #DATAFRAMe de Cp vs tamaño modelos, y comporarlos en una dataFrame
-# outs$Cp[79]
-# 
-# outs$size[79]
-# ``` 
+
+<!-- # ```{r} -->
+<!-- # #DATAFRAMe de Cp vs tamaño modelos, y comporarlos en una dataFrame -->
+<!-- # outs$Cp[79] -->
+<!-- #  -->
+<!-- # outs$size[79] -->
+<!-- # ```  -->
 
 
-```{r, echo=FALSE}
+```{r, include = TRUE, echo = FALSE, fig.pos = 'H', fig.dim = c(8,5), out.width="80%", fig.align = "center", message=FALSE}
 indicadores7<-ols_step_all_possible(complet7)
 par(mfrow=c(2,3))
 plot(indicadores7)
@@ -648,7 +703,7 @@ summary(mod74)
 # summary(mod75)
 ```
 Al compara los modelos de cuatro y cincos variables sin "Arm", es evidente que el modelo de 4 variables, tiene un coeficiente de determinación ligeramente mayor, y en ambos casos sólamente $\beta_{0}$ es estadísticamente significativo. 
-```{r}
+```{r, echo=FALSE}
 par(mfrow=c(2,2))
 plot(mod74)
 names(bd7)
@@ -692,7 +747,7 @@ summary(mod73)
 ```
 Se muestra que el modelo de tres variables: Age, HtShies y Leg, tiene un coeficiente de determinación de 0.6531. Y que sólamente la variables HtShoes es significativamente al 90%. Además, si se verifican los residuales, se puede evidenciar que el rango recorre desde -79 hasta 60, lo cuál se puede considerar un rango amplio. 
 
-```{r}
+```{r, echo=FALSE}
 par(mfrow=c(2,2))
 plot(mod73)
 ```
@@ -721,3 +776,23 @@ kbl(resumen7, booktabs = T, align = "c", caption = "Comparación modelos con R a
 Finalmente, es posible arguir que el modelo de tres variables es el que presenta mejores indicadores. Ya tiene el coeficiente de determinación más alto, y el un punto más alto que los modelos con 2 y 4 variables. Asimismo, los modelos reducidos no cuentan con los problema de outliers influyentes ni de homoscedasticidad en la frontera del P value. Sin embargo,  se evidenció que en ningún modelo, las variables son estadísticamente significativas al 95%. Esto se puede deber a falta de especificación, es decir que ninguna variables describe de forma correcta a  _hipcenter_. Además, se mostró que los residuales tienen un amplio rango. Entonces, se sugiere que haya un especialista de área que oriente la formulación del modelo. 
 
 
+<!-- CITAR : https://online.stat.psu.edu/stat462/node/197/ y tmb a CLUDIA JUAREZ-->
+
+
+---
+\begin{thebibliography}{99}
+  \bibitem{Claudia}
+      Juarez, Claudia,
+      \emph{Análisis de regresión},
+      IIMAS, UNAM.
+      (2021) 
+      
+    
+   \bibitem{PennStat}
+      Pardoe, Iain,
+      \emph{Best subsets regression, Adjusted R-sq, Mallows Cp},
+      Course of the Department of Statistics,
+      The Pennsylvania State University,
+      (2018). Obtenido desde \url{https://online.stat.psu.edu/stat462/node/197/} el 8 de junio de 2021.
+   
+\end{thebibliography}
