@@ -336,28 +336,30 @@ Realice las pruebas de hipótesis para evaluar la significancia de en cada uno d
 
 # Utilizando el estadístico de Mallows como referencia, seleccione que modelo(s) es (son) el (los) mejor para predecir el puntaje de un estudiante en un examen. Suponga que un profesor quisiera utilizar las horas de estudio, exámenes de prueba tomados y el actual promedio como variables para predecir el puntaje que obtendrá un estudiante en un examen. El profesor realiza el ajuste con siete distintos modelos y obtiene el coeficiente de Mallows para cada uno.
 
-El estadístico de Mallows depende de la cantidad de independientes, donde su esperanza es igual al número de parámetros. Es decir :
+El estadístico de Mallows depende del coeficiente de rergesión parcial. Donde la esperanza del estadístico es igual al número de parámetros. Es decir :
 
 $$C_{p} = \frac{SSE}{\sigma^2} - (n - 2p)$$
-Con esperanza $E(C_{p} ) \approx p$. Por lo que se esperaría que el modelo que mejor ajuste tenga un $C_{p}$ con valor similar al número de variables independientes. 
+
+Con esperanza $E(C_{p} ) \approx p$. Por lo que se esperaría que el modelo que mejor ajuste tenga un $C_{p}$ con valor similar al número de parámetros.  Cebe aclarar que la $p$ debe incluir al intercepto. De manera que en la siguiente table, el valor de $p$ es el número de parámetros.
 
 
 ```{r, echo=FALSE}
 data3 <- data.frame(Variables = c("Horas", "Exámenes de prueba", "PRomedio", "Horas y examanes de prueba", "Horas y promedio", "Exámenes de prueba y promedio", "Las tres juntas"),
-                 "Pmás1" = c(2,2,2,3,3,3,4),
-                 "P" = c(1, 1, 1, 2, 2, 2, 3),
+                 "P"   =        c(2, 2, 2, 3, 3, 3, 4),
                  Cp_Mallows = c(45.5,31.4,29.3,3.4,2.9,2.7,4),
-                 Mejor = c( 7, 6, 5, 4, 2, 1, 3)
+                 Mejor   =      c(7 ,6 ,5 ,4 ,2 ,3 , 1)
                     )
 
 kbl(data3, booktabs = T, align = "c", caption = "Comparación modelos con Cp de Mallows")  %>%
-  collapse_rows(columns = 1:5, latex_hline = "major", valign = "middle") %>%
+  collapse_rows(columns = 1:4, latex_hline = "major", valign = "middle") %>%
   kable_styling(position = "center", latex_options = c("repeat_header", "hold_position"),
                 font_size = 17)
-
 ```
+A partir del análisis de la anterior tabla, es posible afirmar que el mejor subconjunto de variables que ajustan el modelo es cuando  están **todas** variables ("Las tres juntas"), ya que tienen un $C_{p} = 4$, y el valor de $P = 4$. 
 
-Por lo tanto, se posible afirmar que el mejor subconjunto de variables que ajustan el modelo es cuando  están las variables "Exámenes de prueba y promedio" en conjunto, ya que tienen un $C_{p} = 2.7$, y el valor de $P = 2$. En segundo lugar, las varibales "Horas y promedio" (  $P = 2$) son el segundo mejor subconjunto, con $C_{p} = 2.9$. En tercer lugar, las tres variables juntas se llevan el tercer lugar. En contraste, el modelo exclusivamente que tiene la variables "Horas" es el que más variación tendría, es decir el de peor desempeño. Además, la colmna "mejor" indica qué modelo es el que mejor ajusta en función del estadístico de Mallows.
+En segundo lugar, las varibales "Horas y promedio" (  $P = 3$) son el segundo mejor subconjunto, con $C_{p} = 2.9$. En tercer lugar, las  variables "Examenes de prueba y promedio" juntas se llevan el tercer lugar. Debido a que $P = 3$ y un valor de $C_{p} = 2.7$. 
+
+En contraste, el modelo exclusivamente que tiene la variables "Horas" es el que más variación tendría, es decir el de peor desempeño. Cabe destacar que la columna "Mejor" indica qué modelo es el que mejor ajusta en función del estadístico de Mallows, con un órden descendente.
 
 Finalmente, cabe destacar que se busca "predecir el puntaje de un estudiante", para lo cuál el estadístico de Mallows no es la mejor herramienta. Ya que el $C_{p}$ es una medida de sesgos y variación de las las betas del modelo. Si bien esto permitirá evaluar el modelo, se sugiere complementar con pruebas de hipótesis, para poder predicir mejor, y también con la suma de cuadrados de errores predichos (PRESS). 
 
@@ -494,15 +496,16 @@ Finalmente, es posible sostener que dado que la autocorrelación proviene del he
 # Para el conjuntos de datos usdeaths del paquete fma
 
 A. GRafique los datos
-```{r, echo=FALSE}
+```{r, include=FALSE}
 bd6 <- usdeaths
 # length(bd6) #12
 # 72/12
 anio6 <- rep(1:12, 6)
 
 bd6df <- as.data.frame(cbind(anio6, bd6))
+```
 
-
+```{r, echo=FALSE}
 par(mfrow=c(1,2))
 plot(bd6) 
 ggplot(bd6df, aes(x=anio6, y=(bd6))) +
