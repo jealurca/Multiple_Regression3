@@ -358,22 +358,24 @@ $$\sum_{i=1}^{n}(\epsilon_{i}^{*})^2 = \sum[Y_{i}\frac{z_{i}}{\sigma^2} - \beta_
 base5 <- cangas
 View(base5)
 #subset(base5, base5==length(base5))
-anios <- rep(1:46, each=12)
-anios <- anios[1:542]
+anios5 <- rep(1:46, each=12)
+anios5 <- anios5[1:542]
+
+# length(base5) #542
+# 46*11 #552
+# #hay46 años
+# 542/45
 
 
-length(base5) #542
-length(anios) == length(base5) #
-46*11 #552
-#hay46 años
-542/45
-
-#cbind(anios, base5) #revisar que la ongitud de anios == a base5
-str(base5)
-summary(base5)
-
+base5new <- cbind(anios5, base5) #revisar que la ongitud de anios == a 
 ```
-La base de datos describe una serie de tiempo desde  1960 hasta el año 2005. Se puede percibir que conforme pasan los años, el valor de la variable también aumenta, lo cuál se visualiza en la siguiente gráfica.  
+La base de datos describe una serie de tiempo desde  1960 hasta el año 2005. Se puede percibir que conforme pasan los años, el valor de la variable también aumenta, lo cuál se visualiza en la siguiente gráfica. Además, a la base de datos se le agregó la variable (columna) de años. 
+```{r, eval=FALSE}
+
+base5new <- cbind(anios5, base5) #revisar que la ongitud de anios == a 
+#con anio5 <- rep(1:46, each=12)
+anios5 <- anios[1:542]
+```
 
 ```{r, echo=FALSE}
 plot(base5)
@@ -381,12 +383,64 @@ plot(base5)
 Respecto a la transformación BoxCox, ésta es de gran utilidad cuando se busca transformar los datos hacia una distribución normal y generar una varianza constante. 
 Además, esta transformación busca "encontrar una relación lineal cuando esta es una curva". Desafortunadamente, la gráfica permite visualizar que la hay ciclos en la tendencia, y no solo una curva (Juarez, 2021). 
 
+```{r, echo=FALSE}
+mod5 <- lm(base5 ~ anios5, base5new)
+summary(mod5)
+
+```
+Al desarrollar una regresión lineal simple, entre los datos y los años, es posible visualizar que tantos los parámetros son estadísticamente significativos hasta al 99% de confianza, incluso que la $R^2_{adj} = 0.9268$.  
+Sin embargo, al revisar gráficamente los supuestos es evidente que el modelo no ajusta. Específicamente, no hay independencia entre residuales y los valores ajustados, tampoco hay homoscedasticidad en el modelo. Cabe agregar que la normalidad se ve alterada en los cuantiles más extremos. 
+
+```{r, echo=FALSE}
+par(mfrow=c(2,2))
+plot(mod5)
+
+```
+```{r, echo=FALSE}
+bptest(mod5)
+dwtest(mod5)
+shapiro.test(mod5$residuals)
+```
+Además, al realizar las pruebas para los supuestos, es evidente que con un P valor de 0.0001 se rechaza la hipótesis nula de moscedasticidad. Y que con un P valor de práticamente 0, también se rechaza la hipótesis de no autocorrelación de los residuales. Además, de que también se rechaza la hipótesis nula de normalidad con la prueba Shapiro-will.
+
+Entonces, se procede a realizar la prueba Box-Cox, con valor de $\lambda = 0.7474$
 ```{r}
+bc5 <- boxcox(mod5)
+bc5$x[ which(bc5$y==max(bc5$y)) ] # 0.7474747
+mod5nu <- lm(((base5^0.7474747)-1)/0.7474747 ~ anios5, base5new)
+
+summary(mod5nu)
+# ggplot(base5new, aes(x=anios5, y=((base5^0.7474747)-1)/0.7474747)) +
+#         geom_point() +
+#         geom_smooth(method = "lm", se=T, col="orange")
 
 
 ```
+Se observa que el modelo mejoró su coeficiente de determinación. Y también los coeficiente continúan siendo significativos. Además, en la parte inferior se muestran las gráficas de los supuestos que sin duda mejoraron. 
 
-REVISAR CÓMO SE VEN LOS DATOS CON HETEROSCEDASTICIDAD Y SUPONER METER LA BOXCOX
+```{r, echo=FALSE}
+
+par(mfrow=c(2,2))
+plot(mod5nu)
+
+```
+```{r, echo=FALSE}
+bptest(mod5nu)
+dwtest(mod5nu)
+shapiro.test(mod5nu$residuals)
+
+```
+Los anteriores resultados muestran que ahora hay homoscedasticidad, con un P valor de 0.6625. Además, obviamente, se arregló el supuesto de normalidad. Sin embargo, continúa habiendo auto-correlación entre los residuales. 
+
+Entonces, las causas por las que puede haber auto-correlación entre errores, pueden ser las siguientes: 
+
+1. La naturaleza del fenómeno a tratar, siendo que haya relación entre errores, como eventos temporales. Y esta es la causa del presente problema.
+
+2. Errores de especificación. 
+
+Entonces, a pesar de que los estimadores de regresión son los estimadores insesgados, **no son los estimadores de varianza mínima**, y por tanto no son los mejores. Además, se subestima la $\sigma^2$, se sobre estima $R^2$, tal como se ha presentado. Y las pruebas con las estadísticas t y F "dejan de ser válidas", por lo que la hipótesis de relación lineal entre estimadores deja de ser válida, también (Juarez, 2021).
+
+Finalmente, es posible sostener que dado que la autocorrelación proviene del hecho de que los datos son temporales, la transformación Box-Cox deja de ser útil para mejorar el modelo. Esto se debe a que esta transformación "mueve" los datos hacia la normalidad, mas no arregla el supuesto de correlación entre errores. Pues la correlación se debe a que el fenómeno es temporal. Es más, se requiere de modelar los errores respecto al tiempo, del método de mínimo cuadrados generalizados (GLS) o de otras transformaciones donde la covarianza de los errores se corriga. 
 
 # Para el conjuntos de datos usdeaths del paquete fma
 
