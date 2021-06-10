@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.27)  9 JUN 2021 15:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.27)  9 JUN 2021 20:05
 entering extended mode
 **./Tarea_regresion_3.tex
 (Tarea_regresion_3.tex
@@ -777,101 +777,93 @@ File: image/iimas.jpg Graphic file (type jpg)
 Package pdftex.def Info: image/iimas.jpg  used on input line 389.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
 [4]
-LaTeX Font Info:    Calculating math sizes for size <17> on input line 438.
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 454.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[5]
+LaTeX Font Info:    Calculating math sizes for size <17> on input line 509.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17> on input line 438.
+(Font)              <17> on input line 509.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <11.89995> on input line 438.
+(Font)              <11.89995> on input line 509.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8.5> on input line 438.
+(Font)              <8.5> on input line 509.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 476.
-(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[5]
-File: image/iimas.jpg Graphic file (type jpg)
-<use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 515.
+Package pdftex.def Info: image/iimas.jpg  used on input line 540.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
 [6]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-34.
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 584.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[7]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
+09.
 ("C:\Program Files\MiKTeX\tex/latex/lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 535.
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-14-1.pdf, id=63, 469.755pt 
-x 325.215pt>
-File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file 
-(type pdf)
-<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-14-1.pdf>
-Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-14-
-1.pdf  used on input line 541.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 541--548
-[][]
- []
-
-File: image/iimas.jpg Graphic file (type jpg)
-<use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 549.
-(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[7 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-14-1.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-568.
-("C:\Program Files\MiKTeX\tex/latex/lm\ts1lmtt.fd"
-File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-16-1.pdf, id=79, 469.755pt 
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 610.
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-16-1.pdf, id=68, 469.755pt 
 x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-16-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-16-
-1.pdf  used on input line 580.
+1.pdf  used on input line 616.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 616--623
+[][]
+ []
+
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 588.
+Package pdftex.def Info: image/iimas.jpg  used on input line 623.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[8 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-16-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-18-1.pdf, id=90, 469.755pt 
+[8]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+643.
+("C:\Program Files\MiKTeX\tex/latex/lm\ts1lmtt.fd"
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 655.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[9 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-16-1.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-18-1.pdf, id=88, 469.755pt 
 x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-18-
-1.pdf  used on input line 622.
+1.pdf  used on input line 655.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 624.
+Package pdftex.def Info: image/iimas.jpg  used on input line 691.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[9 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-18-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-19-1.pdf, id=101, 469.755pt
- x 325.215pt>
-File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file 
+[10 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-18-1.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-20-1.pdf, id=98, 469.755pt 
+x 325.215pt>
+File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file 
 (type pdf)
-<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-19-1.pdf>
-Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-19-
-1.pdf  used on input line 676.
+<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-20-1.pdf>
+Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-20-
+1.pdf  used on input line 697.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 678.
+Package pdftex.def Info: image/iimas.jpg  used on input line 736.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[10]
-File: image/iimas.jpg Graphic file (type jpg)
-<use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 728.
-(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[11 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-19-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-21-1.pdf, id=117, 469.755pt
+[11 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-20-1.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-21-1.pdf, id=109, 469.755pt
  x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file 
 (type pdf)
@@ -879,240 +871,288 @@ File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-21-
 1.pdf  used on input line 743.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Overfull \hbox (93.20953pt too wide) in paragraph at lines 742--748
-[]\T1/lmr/m/n/10 (-20) A. GRa-fi-que los da-tos []
- []
-
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 775.
+Package pdftex.def Info: image/iimas.jpg  used on input line 785.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
 [12 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-21-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-24-1.pdf, id=129, 469.755pt
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-24-1.pdf, id=119, 469.755pt
  x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-24-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-24-
-1.pdf  used on input line 797.
+1.pdf  used on input line 811.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-File: image/iimas.jpg Graphic file (type jpg)
-<use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 836.
-(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[13 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-24-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-25-1.pdf, id=141, 469.755pt
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-25-1.pdf, id=120, 469.755pt
  x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-25-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-25-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-25-
-1.pdf  used on input line 842.
+1.pdf  used on input line 812.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 842--849
+Underfull \hbox (badness 10000) in paragraph at lines 811--817
 [][]
  []
 
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-26-1.pdf, id=142, 469.755pt
- x 325.215pt>
-File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-26-1.pdf Graphic file 
-(type pdf)
-<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-26-1.pdf>
-Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-26-
-1.pdf  used on input line 850.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-File: image/iimas.jpg Graphic file (type jpg)
-<use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 852.
-(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[14 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-25-1.pdf>]
-File: image/iimas.jpg Graphic file (type jpg)
-<use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 897.
-(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[15 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-26-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-27-1.pdf, id=164, 469.755pt
- x 325.215pt>
-File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file 
-(type pdf)
-<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-27-1.pdf>
-Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-27-
-1.pdf  used on input line 903.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 903--909
-[][]
+Underfull \hbox (badness 10000) in paragraph at lines 811--817
+[]
  []
 
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-28-1.pdf, id=165, 469.755pt
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 817.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[13 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-24-1.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-28-1.pdf, id=135, 469.755pt
  x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-28-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-28-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-28-
-1.pdf  used on input line 910.
+1.pdf  used on input line 848.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 912.
+Package pdftex.def Info: image/iimas.jpg  used on input line 850.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[16 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-27-1.pdf>]
+[14 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-25-1.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-29-1.pdf, id=145, 469.755pt
+ x 325.215pt>
+File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file 
+(type pdf)
+<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-29-1.pdf>
+Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-29-
+1.pdf  used on input line 879.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 879--886
+[][]
+ []
+
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 964.
+Package pdftex.def Info: image/iimas.jpg  used on input line 886.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[17 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-28-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-30-1.pdf, id=188, 578.16pt 
-x 361.35pt>
+[15 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-28-1.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-30-1.pdf, id=156, 469.755pt
+ x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-30-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-30-
-1.pdf  used on input line 974.
-(pdftex.def)             Requested size: 469.75385pt x 293.59616pt.
+1.pdf  used on input line 887.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 1007.
+Package pdftex.def Info: image/iimas.jpg  used on input line 889.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[18 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-30-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-32-1.pdf, id=200, 469.755pt
+[16 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-29-1.pdf>]
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 934.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[17 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-30-1.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-31-1.pdf, id=178, 469.755pt
+ x 325.215pt>
+File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file 
+(type pdf)
+<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-31-1.pdf>
+Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-31-
+1.pdf  used on input line 940.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 940--946
+[][]
+ []
+
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-32-1.pdf, id=179, 469.755pt
  x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-32-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-32-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-32-
-1.pdf  used on input line 1009.
+1.pdf  used on input line 947.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1009--1021
-[][]
- []
-
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 1037.
+Package pdftex.def Info: image/iimas.jpg  used on input line 949.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[18 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-31-1.pdf>]
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 1001.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
 [19 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-32-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-34-1.pdf, id=211, 469.755pt
- x 325.215pt>
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-34-1.pdf, id=203, 578.16pt 
+x 361.35pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-34-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-34-
-1.pdf  used on input line 1059.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1059--1064
-[][]
- []
-
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-1.pdf, id=212, 578.16pt 
-x 361.35pt>
+1.pdf  used on input line 1011.
+(pdftex.def)             Requested size: 469.75385pt x 293.59616pt.
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-1.pdf, id=204, 469.755pt
+ x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-
-1.pdf  used on input line 1065.
-(pdftex.def)             Requested size: 375.79955pt x 234.87471pt.
+1.pdf  used on input line 1018.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 1065.
+Package pdftex.def Info: image/iimas.jpg  used on input line 1020.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
 [20 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-34-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-2.pdf, id=222, 578.16pt 
-x 361.35pt>
-File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-2.pdf Graphic file 
-(type pdf)
-<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-2.pdf>
-Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-
-2.pdf  used on input line 1067.
-(pdftex.def)             Requested size: 375.79955pt x 234.87471pt.
-File: image/iimas.jpg Graphic file (type jpg)
-<use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 1099.
-(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[21 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-1.pdf> <./Tarea_re
-gresion_3_files/figure-latex/unnamed-chunk-35-2.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-36-1.pdf, id=241, 469.755pt
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-36-1.pdf, id=216, 469.755pt
  x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-36-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-36-
-1.pdf  used on input line 1138.
+1.pdf  used on input line 1048.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1138--1145
+Underfull \hbox (badness 10000) in paragraph at lines 1048--1060
 [][]
  []
 
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 1145.
+Package pdftex.def Info: image/iimas.jpg  used on input line 1060.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[22]
+[21 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-35-1.pdf>]
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 1173.
+Package pdftex.def Info: image/iimas.jpg  used on input line 1089.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[23 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-36-1.pdf>]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-38-1.pdf, id=255, 469.755pt
+[22 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-36-1.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-38-1.pdf, id=235, 469.755pt
  x 325.215pt>
 File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-38-1.pdf Graphic file 
 (type pdf)
 <use Tarea_regresion_3_files/figure-latex/unnamed-chunk-38-1.pdf>
 Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-38-
-1.pdf  used on input line 1179.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-File: image/iimas.jpg Graphic file (type jpg)
-<use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 1219.
-(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[24 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-38-1.pdf>]
-File: image/iimas.jpg Graphic file (type jpg)
-<use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 1297.
-(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[25]
-<Tarea_regresion_3_files/figure-latex/unnamed-chunk-43-1.pdf, id=270, 469.755pt
- x 325.215pt>
-File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file 
-(type pdf)
-<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-43-1.pdf>
-Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-43-
-1.pdf  used on input line 1305.
+1.pdf  used on input line 1098.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1305--1309
+Underfull \hbox (badness 10000) in paragraph at lines 1098--1103
 [][]
  []
 
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-39-1.pdf, id=236, 578.16pt 
+x 361.35pt>
+File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-39-1.pdf Graphic file 
+(type pdf)
+<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-39-1.pdf>
+Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-39-
+1.pdf  used on input line 1104.
+(pdftex.def)             Requested size: 375.79955pt x 234.87471pt.
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 1104.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[23 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-38-1.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-39-2.pdf, id=246, 578.16pt 
+x 361.35pt>
+File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-39-2.pdf Graphic file 
+(type pdf)
+<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-39-2.pdf>
+Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-39-
+2.pdf  used on input line 1106.
+(pdftex.def)             Requested size: 375.79955pt x 234.87471pt.
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 1138.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[24 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-39-1.pdf> <./Tarea_re
+gresion_3_files/figure-latex/unnamed-chunk-39-2.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-40-1.pdf, id=265, 469.755pt
+ x 325.215pt>
+File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-40-1.pdf Graphic file 
+(type pdf)
+<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-40-1.pdf>
+Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-40-
+1.pdf  used on input line 1177.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (137.03758pt too wide) in paragraph at lines 1315--1324
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 1177--1184
+[][]
  []
 
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 1337.
+Package pdftex.def Info: image/iimas.jpg  used on input line 1184.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[26 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-43-1.pdf>]
+[25]
 File: image/iimas.jpg Graphic file (type jpg)
 <use image/iimas.jpg>
-Package pdftex.def Info: image/iimas.jpg  used on input line 1357.
+Package pdftex.def Info: image/iimas.jpg  used on input line 1212.
 (pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
-[27] (Tarea_regresion_3.aux
+[26 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-40-1.pdf>]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-42-1.pdf, id=280, 469.755pt
+ x 325.215pt>
+File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-42-1.pdf Graphic file 
+(type pdf)
+<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-42-1.pdf>
+Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-42-
+1.pdf  used on input line 1218.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 1258.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[27 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-42-1.pdf>]
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 1336.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[28]
+<Tarea_regresion_3_files/figure-latex/unnamed-chunk-47-1.pdf, id=294, 469.755pt
+ x 325.215pt>
+File: Tarea_regresion_3_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file 
+(type pdf)
+<use Tarea_regresion_3_files/figure-latex/unnamed-chunk-47-1.pdf>
+Package pdftex.def Info: Tarea_regresion_3_files/figure-latex/unnamed-chunk-47-
+1.pdf  used on input line 1344.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1344--1348
+[][]
+ []
+
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 1349.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[29 <./Tarea_regresion_3_files/figure-latex/unnamed-chunk-47-1.pdf>]
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 1364.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[30
+
+]
+File: image/iimas.jpg Graphic file (type jpg)
+<use image/iimas.jpg>
+Package pdftex.def Info: image/iimas.jpg  used on input line 1397.
+(pdftex.def)             Requested size: 85.36116pt x 44.34966pt.
+[31
+
+] (Tarea_regresion_3.aux
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 ) ) 
 Here is how much of TeX's memory you used:
- 18593 strings out of 479799
- 286749 string characters out of 2879558
- 650635 words of memory out of 3000000
- 35035 multiletter control sequences out of 15000+200000
- 612223 words of font info for 150 fonts, out of 3000000 for 9000
+ 18611 strings out of 479799
+ 287517 string characters out of 2879558
+ 650428 words of memory out of 3000000
+ 35045 multiletter control sequences out of 15000+200000
+ 612306 words of font info for 151 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,18n,85p,5225b,539s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Files/MiK
@@ -1134,9 +1174,9 @@ lm/lmri10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Pro
 gram Files/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Program Files/MiKTeX/font
 s/type1/public/lm/lmtk10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmt
 t10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Tarea_regresion_3.pdf (27 pages, 966308 bytes).
+Output written on Tarea_regresion_3.pdf (31 pages, 1088195 bytes).
 PDF statistics:
- 395 PDF objects out of 1000 (max. 8388607)
- 60 named destinations out of 1000 (max. 500000)
- 14488 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 425 PDF objects out of 1000 (max. 8388607)
+ 64 named destinations out of 1000 (max. 500000)
+ 14498 words of extra memory for PDF output out of 17280 (max. 10000000)
 

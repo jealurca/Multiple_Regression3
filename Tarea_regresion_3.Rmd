@@ -246,6 +246,10 @@ ZA * c(1, -1) * t95 * cociente[4]
 
 
 
+
+
+
+
 # Para un conjunto de empresas pertenecientes a cierto sector económico se ha ajustado la siguiente función de producción:
 
 $$Q_{i} = \beta_{o}L_{i}^{\beta_{i} K_{i}^{\beta_{2}} e^{e_{i}} }$$
@@ -313,7 +317,28 @@ qt(0.975, 20)
 ```
 
 
-A continuación, se realiza la prueba de **significancia conjunta**. QUÉ ES LO CONJUNTO? . Dado que el estadístico F también se puede escribir de esta forma: $$F = \frac{(TSS - RSS)/(p-1)}{RSS/(n-p)}$$. Y también el coeficiente de determinación puede expresarse como $$R^2 = 1 - \frac{RSS}{TSS} = \frac{T}{}$$
+A continuación, se realiza la prueba de **significancia conjunta**.  Cuya hipótesis es: $H_{o} : \beta_{1} = \beta_{2} = \dots = \beta_{p} = 0$    vs  $H_{1} : \beta_{j} \neq 0$ , p.a. $j \in {1, \dots, p}$. Donde rechazar la hipótesis nula implica que al menos una variables es significativa para el modelo.
+
+Esta hipótesis se prueba con la estadística F, que tiene la siguiente expresión: $$F_{o} = \frac{SCE/p}{SSE/(n-p-1)} \sim F_{p, n-p-1}$$
+
+
+Dado que el estadístico F también se puede escribir de esta forma: $$F = \frac{(R^2)/(p-1)}{1- R^2/(n-p)}$$. 
+
+Dada la anteriorr expresión, se posible sostener que $$F = \frac{(0.969)/(3-1)}{1- 0.969/(23-3)} = 3.125806$$. 
+
+Entonces, el anterior resultado se debe de compara contra una $F_{p, n-p-1}$. Donde se rechazará la hipótesis nula si:
+
+$$F_{o} > F_{p, n-p-1}$$
+El valor del estadístico teórico se busca en tablas. Donde el valor de $F_{2, 20} = 3.4928$. Por lo tanto, no se rechaza la hipotesis nula, y es posible arüir que ningún parámetro es estadísticamente significativo al 95% de confianza. 
+```{r, include=FALSE}
+r22 <- 0.969
+p2 <- 3
+n2 <- 23
+(r22/(1-r22))*(2/20) #3.125806
+qf(0.95, 2, 20) # 3.492828
+qf(0.975, 2, 20) #4.461255
+
+```
 
 <!-- REVISAR LA PP62 notas dek  -->
 
@@ -333,6 +358,46 @@ $ln(Q_{i}) = -5.5 + 1.7ln(L_{i})$, con  $se(\hat\beta_{1}) = 0.09$ y $R^2 = 0.96
 $ln(Q_{i}) = 5.3 + 0.34ln(K_{i})$, con  $se(\hat\beta_{1}) = 0.02$ y $R^2 = 0.966$
 
 Realice las pruebas de hipótesis para evaluar la significancia de en cada uno de los modelos. Explique la aparente contradicción entre los resultados obtenidos del inciso A) y con los obtenidos en este inciso.
+
+Para ambas ecuaciones, se requiere partir de la siguiente hipótesis nula: 
+
+$H_{o} : \beta_{i} = 0$ vs $H_{1} : \beta_{i} \neq 0$
+
+La cuál está "relacionada con la significancia de la regresión, ya que no rechazar la hipótesis nula implica que no existe relación lineal entre x y y" (Juarez, 2021). Además, la estadística que se emplea es una f, que tiene la siguiente expresión: 
+
+$$f = \frac{\hat\beta^2 S_{xx}}{S^2} \sim F_{(1, n-2)}$$
+Donde la anterior expresión es análoga a $F_{(1, n)} = t^2_{n}$
+Dado que solamente se cuenta con las $\beta_{i}$  , $se(\hat\beta_{1}) = 0.02$ y $R^2 = 0.966$, se debe proceder como sigue.
+
+Debido a que $VAR(\hat\beta_{i}) = \frac{\sigma^2}{S_{xx}}$. Lo cuál puede argumentarse que  $SE(\hat\beta_{i}) = {\frac{\sigma^2}{S_{xx}}}$. Sn embargo, dado que no se conoce $\sigma^2$ es necesario estimarlo mediante $S^2$. Lo cuál generaría la función de $SE(\hat\beta_{i}) = {\frac{S^2}{S_{xx}}}$. 
+
+A partir de lo anterior, es posible expresar la F como
+
+\begin{align*}
+f = {\hat\beta^2_{i} / SE(\hat\beta_{i})} \sim F_{(1, n-2)}
+\end{align*}
+
+
+Particulamente para el caso de $\beta_{L}$.
+$$F_{o} = 1.71/0.09 = 19$$. Lo cuál se contrasta contra una $F_{(1, n-2)} = 4.3247$. Entonces, se **puede concluir que** $F_{o,L} >> F_{(1, n-2)}$. Por lo que el efecto de $\beta_{L}$ sí es significativo para este modelo.
+```{r, include=FALSE}
+1.71/0.09 #19
+qf(0.95, 1, 21)
+
+0.34/0.02 #17
+```
+
+Ahora respecto a $\beta_{K}$. $$F_{o} = 0.34/0.02 = 17$$. Lo cuál se contrasta contra una $F_{(1, n-2)} = 4.3247$. Entonces, se **puede concluir que** que $F_{o,k} >> F_{(1, n-2)}$. Por lo que el efecto de $\beta_{K}$ sí es significativo para este modelo.
+
+Curiosamente, el hecho de que los estimadores salgan significativos en un modelo simple se podría deber a que hay multicolinealidad en el modelo múltiple. Además, las manifestaciones de la colinealidad es que el $R^2$ es muy cercano a 1, los coeficientes son menores (o hasta cambian de signo) respecto al modelo más simple o sin multicolinealidad. Además de que se puede deber a que al ser una función de producción de empresas del sector, es posible que la recolección de información se haya levantado para agrupaciones similares de empresas, y que la muestra es relativamente pequeña. 
+
+
+
+
+
+
+
+
 
 # Utilizando el estadístico de Mallows como referencia, seleccione que modelo(s) es (son) el (los) mejor para predecir el puntaje de un estudiante en un examen. Suponga que un profesor quisiera utilizar las horas de estudio, exámenes de prueba tomados y el actual promedio como variables para predecir el puntaje que obtendrá un estudiante en un examen. El profesor realiza el ajuste con siete distintos modelos y obtiene el coeficiente de Mallows para cada uno.
 
@@ -383,9 +448,6 @@ Una forma de corregir el anterior problema es al aplicar el método de mínimos 
 Entonces, se parte de la ecuación inicial: 
 $$Y_{i} = \beta_{0} + \beta_{1}X_{1i} + \beta_{2}X_{2i} + e_{i}$$
 
-
-C. Compruebe que el modelo ponderado del inciso anterior es heterocedástico.
-
 Dado que se conocen las varianza heterocedástica, la cuál es: 
 $VAR(e_{i}) = \frac{\sigma^2}{z_{i}}$. 
 Es posible, multiplicar el modelo por $\frac{z_{i}}{\sigma^2}$. 
@@ -395,6 +457,8 @@ Lo que generaría la siguinete expresión:
 Y_{i}\frac{z_{i}}{\sigma^2} = \\
 & \beta_{0}\frac{z_{i}}{\sigma^2} + \beta_{1}X_{1i}\frac{z_{i}}{\sigma^2} + \beta_{2}X_{2i}\frac{z_{i}}{\sigma^2} +  e_{i}\frac{z_{i}}{\sigma^2}
 \end{align*}
+
+C. Compruebe que el modelo ponderado del inciso anterior es heterocedástico.
 
 
 De esta forma, $$VAR(e_{i}) = \frac{\sigma^2}{z_{i}}$$ Y al aplicar la trasnformación:
@@ -461,10 +525,6 @@ bc5$x[ which(bc5$y==max(bc5$y)) ] # 0.7474747
 mod5nu <- lm(((base5^0.7474747)-1)/0.7474747 ~ anios5, base5new)
 
 summary(mod5nu)
-# ggplot(base5new, aes(x=anios5, y=((base5^0.7474747)-1)/0.7474747)) +
-#         geom_point() +
-#         geom_smooth(method = "lm", se=T, col="orange")
-
 
 ```
 Se observa que el modelo mejoró su coeficiente de determinación. Y también los coeficiente continúan siendo significativos. Además, en la parte inferior se muestran las gráficas de los supuestos que sin duda mejoraron. 
@@ -513,9 +573,12 @@ ggplot(bd6df, aes(x=anio6, y=(bd6))) +
         geom_abline(slope= 109.95, intercept = 8188.57, show.legend = "real", color="pink")  
     
 ```
+```{r, echo=FALSE}
+plot(bd6)
+```
 Es evidente que se trata de una base de datos de información temporal. Si se traza una recta de regresión, es evidente que hay gran distancia entre las observaciones y la recta, lo cuál podría llevar a pensar que el modelo no ajusta bien. 
 
-```{r}
+```{r, echo=FALSE}
 summary(bd6)
 str(bd6)
 ```
@@ -535,7 +598,7 @@ plot(mod6)
 ```
 Se aplica un modelo de regresión lineal simple. A pesar de que los estimadores son estadísticamente significativos, el coeficiente de determinación es _muy mal_, pues es de 0.13. Respecto a los supuestos básciso, es posible identificar que los datos son normales, pero los extremos se alejan; parece que no hay datos _outliers_ influyentes; parece que no hay heteroscedasticidad, pero que los datos con identificación 7, 6, y 8 podrían  incidir en la curva central roja; finalmente, parece haber tendencia entre los residuales y los datos ajustados, lo que se muestra como una _colina_, y los mismos datos (6,7,8) ,son los más incluyentes. Entonces, se procede a realizar una transformación para mejorar el ajuste del modelo, y comprobar la relación entre residuales y datos. 
 
-```{r}
+```{r, echo=FALSE}
 
 bc6 <- boxcox(mod6)
 bc6$x[ which(bc6$y==max(bc6$y)) ] # -0.989899
@@ -626,7 +689,7 @@ p.mat <- cor.mtest(cor_base)
 corrplot(cor_base, type = "upper", order = "hclust", tl.col = "black", tl.srt = 45, p.mat = p.mat, sig.level = 0.05)
 ```
 
-```{r, include=FALSE}
+```{r, echo=FALSE}
 ggpairs(bd7)
 
 
